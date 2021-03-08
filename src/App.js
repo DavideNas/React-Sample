@@ -1,25 +1,31 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Messages from './Messages';
 import Post from './FacebookPost';
 
-class App extends React.Component {
-  state = {
-    number: 0,
+function App() {
+  // CLASS COMPONENT
+  // state = {
+  //  count: 0
+  // }
+  // increment = () => {
+  //   this.setState({
+  //     number: this.state.number +1
+  //   })
+  // }
+
+  // FUNCTION COMPONENT
+
+  const [count, setCount] = useState(0);
+  const increment = () => {
+    setCount(count + 1)
   }
 
-  increment = () => {
-    this.setState({
-      number: this.state.number +1
-    })
-  }
-  render() {
-    return (
-      <div className="Container">
-        <h3>counter: {this.state.number}</h3>
-        <button onClick={this.increment}>Increment</button>
-      </div>
-    );
-  }
+  return (
+    <div className="Container">
+      <h3>counter: {count}</h3>
+      <button onClick={increment}>Increment</button>
+    </div>
+  );
 }
 
 export default App;
