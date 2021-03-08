@@ -1,29 +1,20 @@
-import React, {useState} from 'react';
-import Messages from './Messages';
+import React, { useState } from 'react';
 import Post from './FacebookPost';
 
 function App() {
-  // CLASS COMPONENT
-  // state = {
-  //  count: 0
-  // }
-  // increment = () => {
-  //   this.setState({
-  //     number: this.state.number +1
-  //   })
-  // }
-
-  // FUNCTION COMPONENT
-
-  const [count, setCount] = useState(0);
-  const increment = () => {
-    setCount(count + 1)
-  }
+  const [posts, setPosts] = useState([
+      {author: 'Mr. Henky', description: 'è una cacca ?'},
+      {author: 'Dr. Henky', description: 'è una merdina...'},
+      {author: 'Mrs. Henky', description: 'è una vera merda !'},
+      {author: 'Henky Kid', description: 'io caco fiori di montagna'},
+  ]);
 
   return (
     <div className="Container">
-      <h3>counter: {count}</h3>
-      <button onClick={increment}>Increment</button>
+      {posts.map((post, index) => (
+        //console.log(post);
+        <Post key={index} author={post.author} description={post.description} />
+      ))}
     </div>
   );
 }
